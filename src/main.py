@@ -1,4 +1,5 @@
 from island import Island
+from islandstory import IslandStory
 
 class Story:
     
@@ -24,10 +25,15 @@ class Story:
         print(story_piece)
 
     def generate_story(self):
-        for i in xrange(0, 6250):
-            i = Island()
-            self.print_story('God created the region named as ' + i.island_name)
 
+        max_island_story_days = 10
+
+        while self.story_words < 50000:
+            i = Island()
+            island_story = IslandStory(i)
+            for i in xrange(0, max_island_story_days):
+                self.print_story(island_story.update_day())
+                # self.print_story('God created the region named as ' + i.island_name)
 
 s = Story()
 s.generate_story()
