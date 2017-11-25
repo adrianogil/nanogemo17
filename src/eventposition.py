@@ -5,3 +5,4 @@ class EventPosition:
         self.posx =  pos[0]
         self.posy =  pos[1]
         self.event_type = event_type 
+        self.event_object = None

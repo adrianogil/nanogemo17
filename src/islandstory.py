@@ -13,7 +13,7 @@ class IslandStory:
         self.day = self.day + 1
 
         if self.day <= 0:
-            return 'God created the region named as ' + self.island.island_name
+            return self.island.describe()
 
         day_events = ''
 
