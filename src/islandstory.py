@@ -17,6 +17,15 @@ class IslandStory:
 
         day_events = ''
 
+        day_events = day_events + self.add_new_people()
+
+        if len(day_events) == 0:
+            return '\tDay ' + str(self.day) + ': Nothing happened at all'
+        return '\tDay ' + str(self.day) + ':\n' + day_events
+
+    def add_new_people(self):
+        day_events = ''
+
         person_comes_p = randint(0, 100)
 
         if person_comes_p > self.new_people_comes_probability:
@@ -26,8 +35,4 @@ class IslandStory:
                 self.island.add_person(new_p)
             day_events = '\t\t' + str(total_new_people) + ' new people came to here.\n'
             day_events = day_events + '\t\tTotal population: ' + str(self.island.get_population_size())
-
-
-        if len(day_events) == 0:
-            return '\tDay ' + str(self.day) + ': Nothing happened at all'
-        return '\tDay ' + str(self.day) + ':\n' + day_events
+        return day_events
